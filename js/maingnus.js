@@ -53,47 +53,53 @@ function createPiece(type) {
   });
 
   function simulateArrowKeyPress() {
+    console.log("Hello")
     const arrowKeys = [37, 38, 39, 40];
     const randomArrowKey = arrowKeys[Math.floor(Math.random() * arrowKeys.length)];
     const event = new KeyboardEvent('keydown', {keyCode: randomArrowKey});
-    window.dispatchEvent(event);
+    handlekeyEvent(event);
   }
   
   setInterval(simulateArrowKeyPress, 100);
-  
-  const keyListener = (event) => {
+
+  const handlekeyEvent = (event) => {
     //player 1
     [
-      [65, 68, 87, 83], //W, A, S, D
-      /*
-      [72, 75, 85, 74], //U, H, J, K
-      */
-     
-    ].forEach((key, index) => {
-      const player = tetri[index].player;
-      if (event.type === "keydown") {
-        if (event.keyCode === key[0]) {
-          player.move(-1);
-        } else if (event.keyCode === key[1]) {
-          player.move(1);
-        } else if (event.keyCode === key[2]) {
-          player.rotate(1);
-        }
-      }
-  
-      if (event.keyCode === key[3]) {
+        [65, 68, 87, 83],
+         [37, 38, 39, 40]
+        /*
+        [72, 75, 85, 74], //U, H, J, K
+        */
+       
+      ].forEach((key, index) => {
+        const player = tetri[index].player;
         if (event.type === "keydown") {
-          if (player.dropInterval !== player.DROP_FAST) {
-            player.drop();
-            player.dropInterval = player.DROP_FAST;
+          if (event.keyCode === key[0]) {
+            player.move(-1);
+          } else if (event.keyCode === key[1]) {
+            player.move(1);
+          } else if (event.keyCode === key[2]) {
+            player.rotate(1);
           }
-        } else {
-          player.dropInterval = player.DROP_SLOW;
         }
-      }
-    const inputs = [37,38,39,40];
-      
-    });
+    
+        if (event.keyCode === key[3]) {
+          if (event.type === "keydown") {
+            if (player.dropInterval !== player.DROP_FAST) {
+              player.drop();
+              player.dropInterval = player.DROP_FAST;
+            }
+          } else {
+            player.dropInterval = player.DROP_SLOW;
+          }
+        }
+  
+      });
+
+  }
+
+  const keyListener = (event) => {
+    handlekeyEvent(event);
   };
   
   document.addEventListener("keydown", keyListener);
