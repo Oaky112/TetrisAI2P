@@ -44,7 +44,7 @@ function createPiece(type) {
   }
 }
 
-const tetris = [];
+const tetri = [];
 
 const playerElements = document.querySelectorAll(".player");
 [...playerElements].forEach((element) => {
