@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "tetris-text";
+  src: url(RubikIso-Regular.ttf);
+}
+
+.startButtons {
+  margin-left: 0;
+  margin-top: 300px;
+}
+
+li:hover {
+  color: red;
+}
