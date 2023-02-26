@@ -3,6 +3,11 @@
   src: url(RubikIso-Regular.ttf);
 }
 
+@font-face{
+  font-family: "score-text";
+  src: url(PressStart2P-Regular.ttf);
+}
+
 .startButtons {
   margin-left: 0;
   margin-top: 300px;
