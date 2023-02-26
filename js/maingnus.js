@@ -60,7 +60,7 @@ function createPiece(type) {
     handlekeyEvent(event);
   }
   
-  setInterval(simulateArrowKeyPress, 100);
+  setInterval(simulateArrowKeyPress, 500);
 
   const handlekeyEvent = (event) => {
     //player 1
