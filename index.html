@@ -34,8 +34,37 @@
       <canvas class="tetris" width="240" height="400"></canvas>
       <div class="score" style ="float:right; border-width: 10px; border-color: white;margin-right:50px; border-style:solid; padding: 30px"></div>
     </div>
+    <label id="minutes">00</label>
+<label id="colon">:</label>
+<label id="seconds">00</label>
+    <script type="text/javascript">
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
 
-    <div class="player">
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
+
+  <div class="player">
       <p style ="font-family: score-text; padding:0%; font-size: 20px">Player 2</p>
       <canvas class="tetris" width="240" height="400"></canvas>
       <div class="score" style="float: left;border-width: 10px; border-color: white; margin-left:50px; border-style:solid; padding: 30px"></div>

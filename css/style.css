@@ -16,3 +16,21 @@
 li:hover {
   color: red;
 }
+
+#seconds {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: "score-text";
+}
+
+
+#minutes {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: "score-text";
+}
+#colon {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: "score-text";
+}
